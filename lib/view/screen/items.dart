@@ -19,11 +19,9 @@ class Items extends StatelessWidget {
     return Scaffold(
         body: ListView(children: [
       CustomAppBar(
-        onPressedIconFavorite:(){
-          
- Get.toNamed(AppRoute.myfavorite);
- 
-                    },
+        onPressedIconFavorite: () {
+          controllerFav.goToFavorite();
+        },
         titleappbar: "Find Product",
         onPressedIcon: () {},
         onPressedSearch: () {},

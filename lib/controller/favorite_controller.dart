@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/class/staturequest.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/favorite_data.dart';
@@ -36,7 +37,7 @@ class FavoriteController extends GetxController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-         Get.rawSnackbar(title: "notification", messageText:  Text("Done added"));
+        Get.rawSnackbar(title: "notification", messageText: Text("Done added"));
         //data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -55,12 +56,17 @@ class FavoriteController extends GetxController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-        Get.rawSnackbar(title: "notification", messageText:  Text("Done removed"));
+        Get.rawSnackbar(
+            title: "notification", messageText: Text("Done removed"));
         // data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
       }
     }
     // update();
+  }
+
+  goToFavorite() {
+    Get.offNamed(AppRoute.myfavorite);
   }
 }
