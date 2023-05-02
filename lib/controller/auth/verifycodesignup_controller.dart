@@ -12,61 +12,55 @@ abstract class VerifyCodeSignUpController extends GetxController {
   checkCode();
 
   goToSuccessSigUp(String verfiyCodeSignUp);
+  reSend();
 }
 
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
-
   VerfiyCodeSignUpData verfiyCodeSignUpData = VerfiyCodeSignUpData(Get.find());
-
-
 
   String? email;
 
   StatusRequest statusRequest = StatusRequest.none;
 
   @override
-  checkCode() {
-
-  }
+  checkCode() {}
 
   @override
   goToSuccessSigUp(verfiyCodeSignUp) async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await verfiyCodeSignUpData.postdata(email!, verfiyCodeSignUp);
+    var response =
+        await verfiyCodeSignUpData.postdata(email!, verfiyCodeSignUp);
     // ignore: avoid_print
     print("=============================== Controller $response ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-
         Get.offNamed(AppRoute.successSignUp);
-
-    } else {
-      Get.defaultDialog(
-          title: "Warning", middleText: "Verify Code Not Correct");
-      statusRequest = StatusRequest.failure;
+      } else {
+        Get.defaultDialog(
+            title: "Warning", middleText: "Verify Code Not Correct");
+        statusRequest = StatusRequest.failure;
+      }
     }
+
+    update();
   }
 
-  update();
+  @override
+  void onInit() {
+    email = Get.arguments['email'];
 
-}
+    super.onInit();
+  }
 
-@override
-void onInit() {
-  email = Get.arguments['email'];
+  @override
+  reSend() {
+    verfiyCodeSignUpData.resendData(email!);
+  }
 
-
-  super.onInit();
-}
-
-
-
-@override
-void dispose() {
-  super.dispose();
-}
-
-
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }

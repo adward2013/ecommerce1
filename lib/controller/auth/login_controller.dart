@@ -40,6 +40,7 @@ class LoginControllerImp extends LoginController{
     if (formstate.currentState!.validate())  {
       statusRequest = StatusRequest.loading;
       update();
+      
       var response = await loginData.postdata(email.text ,password.text);
       // ignore: avoid_print
       print("=============================== Controller $response ") ;
@@ -47,13 +48,32 @@ class LoginControllerImp extends LoginController{
       if (StatusRequest.success == statusRequest) {
         if(response['status'] == "success"){
           // data.addAll(response['data']);
-          //
-          myServices.sharedPreferences.setString("id", response['data']['users_id'].toString());
-          myServices.sharedPreferences.setString("username", response['data']['users_name']);
-          myServices.sharedPreferences.setString("email", response['data']['users_email']);
-          myServices.sharedPreferences.setString("phone", response['data']['users_phone']);
-          myServices.sharedPreferences.setString("step", "2");
-          Get.offNamed(AppRoute.homepage );
+          myServices.sharedPreferences
+                .setString("id", response['data']['users_id'].toString());
+            myServices.sharedPreferences
+                .setString("username", response['data']['users_name']);
+            myServices.sharedPreferences
+                .setString("email", response['data']['users_email']);
+            myServices.sharedPreferences
+                .setString("phone", response['data']['users_phone']);
+            myServices.sharedPreferences.setString("step", "2");
+            Get.offNamed(AppRoute.homepage);
+
+        // if (response['data']['users_approve'] == "1") {
+        //     myServices.sharedPreferences
+        //         .setString("id", response['data']['users_id']);
+        //     myServices.sharedPreferences
+        //         .setString("username", response['data']['users_name']);
+        //     myServices.sharedPreferences
+        //         .setString("email", response['data']['users_email']);
+        //     myServices.sharedPreferences
+        //         .setString("phone", response['data']['users_phone']);
+        //     myServices.sharedPreferences.setString("step", "2");
+        //     Get.offNamed(AppRoute.homepage);
+        //   } else {
+        //     Get.toNamed(AppRoute.verfiycodeSignUp,
+        //         arguments: {"email": email.text});
+        //   }
         }else {
           Get.defaultDialog(title: "Warning" , middleText: "Email Or Password Not Correct");
           statusRequest = StatusRequest.failure ;

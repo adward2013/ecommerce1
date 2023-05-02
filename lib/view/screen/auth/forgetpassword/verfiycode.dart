@@ -47,9 +47,9 @@ class VerifyCode extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                const CustomTextBodyAuth(
+                 CustomTextBodyAuth(
                   text:
-                      "Please Enter The Digit Code Sent To labeb.adward@yahoo.com",
+                      "Please Enter The Digit Code Sent To ${controller.email}",
                 ),
                 const SizedBox(
                   height: 15,
