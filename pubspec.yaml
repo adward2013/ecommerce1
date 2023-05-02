@@ -110,6 +110,7 @@ flutter:
     - assets/images/3.PNG
     - assets/images/4.png
     - assets/images/logo.png
+    - assets/images/avatar.jpg
     - assets/lottie/loading.json
     - assets/lottie/nodata.json
     - assets/lottie/offline.json

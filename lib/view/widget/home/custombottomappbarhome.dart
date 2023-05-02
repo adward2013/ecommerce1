@@ -13,6 +13,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
     return GetBuilder<HomeScreenControllerImp>(builder: (controller) => BottomAppBar(
               shape: const CircularNotchedRectangle(),
               notchMargin: 10,
+              
               child: Row(
                 children: [
                   ...List.generate(controller.listPage.length + 1, ((index) {
@@ -20,9 +21,8 @@ class CustomBottomAppBarHome extends StatelessWidget {
                     return index == 2
                         ? const Spacer()
                         : CustomButtomAppBar(
-                            textbuttom: controller.titlebuttomappbar[
-                                i],
-                            iconData: Icons.home,
+                            textbuttom: controller.buttomappbar[i]['title'],
+                            iconData: controller.buttomappbar[i]['icon'],
                             active:
                                 controller.currentpage == i ? true : false,
                             onPressed: () {

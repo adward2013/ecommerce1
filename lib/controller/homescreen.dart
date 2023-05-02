@@ -1,4 +1,5 @@
 import 'package:ecommerce/view/screen/home.dart';
+import 'package:ecommerce/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,26 +17,19 @@ class HomeScreenControllerImp extends HomeScreenController {
         Center(child: Text("Settings")),
       ],
     ),
-    
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
         Center(child: Text("profile")),
       ],
     ),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Center(child: Text("Fav")),
-      ],
-    ),
+  const Settings()
   ];
-  List titlebuttomappbar = [
-    "home",
-    "Settings",
-   
-    "profile",
-    "favorite",
+  List buttomappbar = [
+    {"title": "home", "icon": Icons.home_outlined},
+    {"title": "notifications", "icon": Icons.notifications_outlined},
+    {"title": "profile", "icon": Icons.person_outline},
+    {"title": "settings", "icon": Icons.settings_outlined}
   ];
   @override
   // ignore: avoid_renaming_method_parameters

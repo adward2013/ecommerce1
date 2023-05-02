@@ -28,24 +28,24 @@ class CustomAppBar extends StatelessWidget {
               fillColor: Colors.grey[200],
             ),
           )),
-          const SizedBox(
-            width: 10,
-          ),
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(20)),
-            width: 60,
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: IconButton(
-              onPressed: onPressedIcon,
-              icon: Icon(
-                Icons.notifications_active_outlined,
-                size: 30,
-                color: Colors.grey[600],
-              ),
-            ),
-          ),
+          // const SizedBox(
+          //   width: 10,
+          // ),
+          // Container(
+          //   decoration: BoxDecoration(
+          //       color: Colors.grey[200],
+          //       borderRadius: BorderRadius.circular(20)),
+          //   width: 60,
+          //   padding: const EdgeInsets.symmetric(vertical: 8),
+          //   child: IconButton(
+          //     onPressed: onPressedIcon,
+          //     icon: Icon(
+          //       Icons.notifications_active_outlined,
+          //       size: 30,
+          //       color: Colors.grey[600],
+          //     ),
+          //   ),
+          // ),
           const SizedBox(
             width: 10,
           ),

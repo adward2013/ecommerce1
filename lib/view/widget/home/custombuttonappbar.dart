@@ -25,10 +25,10 @@ class CustomButtomAppBar extends StatelessWidget {
           iconData,
           color: active == true ?AppColor.primaryColor : AppColor.grey2 ,
         ),
-        Text(
-          textbuttom,
-          style: TextStyle(color: active == true ?AppColor.primaryColor : AppColor.grey2),
-        )
+        // Text(
+        //   textbuttom,
+        //   style: TextStyle(color: active == true ?AppColor.primaryColor : AppColor.grey2),
+        // )
       ]),
     );
   }
