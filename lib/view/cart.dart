@@ -14,27 +14,37 @@ class Cart extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           
+      
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("price" , style: TextStyle(fontSize: 17),),
-              Text("600 \$",style: TextStyle(fontSize: 17, fontFamily: "sans"), ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("price" , style: TextStyle(fontSize: 17),)),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("1200 \$",style: TextStyle(fontSize: 17 , fontFamily: "sans"), )),
           ],),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("price" , style: TextStyle(fontSize: 17),),
-              Text("600 \$",style: TextStyle(fontSize: 17, fontFamily: "sans"), ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("shipping" , style: TextStyle(fontSize: 17),)),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("200 \$",style: TextStyle(fontSize: 17 , fontFamily: "sans"), )),
           ],),
-           Padding(
-             padding: const EdgeInsets.symmetric(horizontal: 18),
-             child: Divider(color: AppColor.black,),
-           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+        Divider(),
+           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Total price" , style: TextStyle(fontSize: 17),),
-              Text("1200 \$",style: TextStyle(fontSize: 17 , fontFamily: "sans"), ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("Total price" , style: TextStyle(fontSize: 17, fontFamily: "sans" , fontWeight: FontWeight.bold ,color:AppColor.primaryColor ),)),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("1400 \$",style: TextStyle(fontSize: 17 , fontFamily: "sans" , fontWeight: FontWeight.bold,color:AppColor.primaryColor), )),
           ],),
          const SizedBox(height: 10,),
           CustomButtomCart(
@@ -46,6 +56,7 @@ class Cart extends StatelessWidget {
       )),
       body: ListView(children: [
         Container(
+          
           alignment: Alignment.center,
           child: Row(
             children: [
@@ -70,6 +81,17 @@ class Cart extends StatelessWidget {
             ],
           ),
         ),
+        const SizedBox(height: 10,),
+  Container(
+    margin: const EdgeInsets.symmetric(horizontal: 20),
+    padding: const EdgeInsets.only(bottom: 5),
+   // height: 20,
+    decoration: BoxDecoration(
+      color: AppColor.secoundColor,
+      borderRadius: BorderRadius.circular(20)
+    ),
+    child: Text("You Have 2 Items In Your Cart" , textAlign: TextAlign.center,style: TextStyle(color: AppColor.white),),
+  ),
         Container(
           padding: const EdgeInsets.all(10),
           child: Column(

@@ -8,5 +8,6 @@ class AppColor{
   static const Color thirdColor = Color(0xff9dd5f5) ;
   static const Color fourthColor = Color.fromRGBO(0, 36, 62, 1) ;
   static const Color black = Color(0xff000000) ;
+  static const Color white = Color.fromARGB(255, 255, 254, 254) ;
   static const Color backgroundcolor = Color(0xffffffff) ;
 }
