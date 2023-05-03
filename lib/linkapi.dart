@@ -1,11 +1,12 @@
 class AppLink {
-  static const String server = "http://adwar1111-001-site1.btempurl.com/ecommerce";
-  
+  static const String server =
+      "http://adwar1111-001-site1.btempurl.com/ecommerce";
+
   //------------------------images
-  static const String image = "http://adwar1111-001-site1.btempurl.com/ecommerce/upload";
+  static const String image =
+      "http://adwar1111-001-site1.btempurl.com/ecommerce/upload";
   static const String imagesCategories = "$image/categories";
   static const String imagesItems = "$image/items";
-
 
 //------------------------------------test
   static const String test = "$server/test.php";
@@ -32,13 +33,14 @@ class AppLink {
 
   static const String items = "$server/items/items.php";
 
-
-   //----------------------------------favorite
-   static const String favoriteadd = "$server/favorite/add.php";
-   static const String favoriteremove = "$server/favorite/remove.php";
-   static const String favoriteview = "$server/favorite/view.php";
-   static const String favoritedelete = "$server/favorite/deletefavorite.php";
+  //----------------------------------favorite
+  static const String favoriteadd = "$server/favorite/add.php";
+  static const String favoriteremove = "$server/favorite/remove.php";
+  static const String favoriteview = "$server/favorite/view.php";
+  static const String favoritedelete = "$server/favorite/deletefavorite.php";
 
 //----------------------------------cart
-   static const String Cart = "$server/favorite/deletefavorite.php";
+  static const String cartview = "$server/cart/view.php";
+  static const String cartadd = "$server/cart/add.php";
+  static const String cartremove = "$server/cart/remove2.php";
 }

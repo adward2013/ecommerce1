@@ -21,15 +21,19 @@ class ProductDetails extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         height: 40,
         child: MaterialButton(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           onPressed: () {},
           color: AppColor.secoundColor,
-          child: const Text("Add To Cart" , style: TextStyle(color:Colors.white , fontWeight: FontWeight.bold ),),
+          child: const Text(
+            "Add To Cart",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
       body: ListView(
         children: [
-        const TopPeoductPageDetails(),
+          const TopPeoductPageDetails(),
           const SizedBox(
             height: 100,
           ),
@@ -45,9 +49,20 @@ class ProductDetails extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline1!.copyWith(
                           color: AppColor.fourthColor,
                         )),
-              const SizedBox(height: 10,),
-                PriceAndCountItems(onAdd:(){},onRemove: () {
-                },price: "200", count: "3"),
+                const SizedBox(
+                  height: 10,
+                ),
+                PriceAndCountItems(
+                    onAdd: () {
+                      controller.cartController
+                          .add(controller.itemsModel.itemsId.toString());
+                    },
+                    onRemove: () {
+                       controller.cartController
+                          .remove(controller.itemsModel.itemsId.toString());
+                    },
+                    price: "${controller.itemsModel.itemsPrice}",
+                    count: "3"),
                 const SizedBox(
                   height: 10,
                 ),
@@ -67,7 +82,7 @@ class ProductDetails extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-               const SubItensList(),
+                const SubItensList(),
               ],
             ),
           )

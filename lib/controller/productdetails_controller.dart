@@ -1,11 +1,12 @@
-import 'dart:ffi';
-
+import 'package:ecommerce/controller/cart_controller.dart';
 import 'package:ecommerce/data/model/itemsmodel.dart';
 import 'package:get/get.dart';
 
 abstract class ProductDetailsController extends GetxController {}
 
 class ProductDetailsControllerImp extends ProductDetailsController {
+  CartController cartController = Get.put(CartController());
+
   late ItemsModel itemsModel;
 
   intialData() {
