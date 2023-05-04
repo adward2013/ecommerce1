@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/cart_controller.dart';
+import 'package:ecommerce/core/class/staturequest.dart';
 import 'package:ecommerce/data/model/itemsmodel.dart';
 import 'package:get/get.dart';
 
@@ -9,8 +10,17 @@ class ProductDetailsControllerImp extends ProductDetailsController {
 
   late ItemsModel itemsModel;
 
-  intialData() {
+  late StatusRequest statusRequest;
+
+  int countitems = 0;
+
+  intialData() async {
+    statusRequest = StatusRequest.loading;
     itemsModel = Get.arguments['itemsmodel'];
+    countitems =
+        await cartController.getCountItems(itemsModel.itemsId.toString());
+    statusRequest = StatusRequest.success;
+    update();
   }
 
   List subitems = [
@@ -27,9 +37,24 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     {"name": "black", "id": 3, "active": "1"}
   ];
 
+  add() {
+    cartController.add(itemsModel.itemsId.toString());
+    countitems++;
+    update();
+  }
+
+  remove() {
+    if (countitems > 0) {
+      cartController.remove(itemsModel.itemsId.toString());
+      countitems--;
+      update();
+    }
+  }
+
   @override
   void onInit() {
     intialData();
+
     super.onInit();
   }
 }

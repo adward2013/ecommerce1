@@ -23,10 +23,10 @@ class CartData {
   //   return response.fold((l) => l, (r) => r) ;
 
   // }
-  //  deleteFavorite(String id ) async {
-  //   var response = await crud.postData(AppLink.favoritedelete, {"id" : id });
+   getCountCart(String userid , String itemsid) async {
+    var response = await crud.postData(AppLink.cartcountitems, {"usersid" : userid , "itemsid" : itemsid});
 
-  //   return response.fold((l) => l, (r) => r) ;
+    return response.fold((l) => l, (r) => r) ;
 
-  // }
+  }
 }
