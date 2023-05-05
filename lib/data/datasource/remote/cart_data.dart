@@ -17,12 +17,12 @@ class CartData {
     return response.fold((l) => l, (r) => r) ;
 
   }
-  //   viewFavorite(String id ) async {
-  //   var response = await crud.postData(AppLink.favoriteview, {"id" : id });
+    viewCart(String id ) async {
+    var response = await crud.postData(AppLink.cartview, {"id" : id });
 
-  //   return response.fold((l) => l, (r) => r) ;
+    return response.fold((l) => l, (r) => r) ;
 
-  // }
+  }
    getCountCart(String userid , String itemsid) async {
     var response = await crud.postData(AppLink.cartcountitems, {"usersid" : userid , "itemsid" : itemsid});
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TopAppBarCart extends StatelessWidget {
   final String title;
@@ -15,16 +16,19 @@ class TopAppBarCart extends StatelessWidget {
             child: Container(
                 alignment: Alignment.centerLeft,
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.back();
+                  },
                   icon: const Icon(Icons.arrow_back_outlined),
                 )),
           ),
           Expanded(
             child: Container(
               alignment: Alignment.center,
-              child:  Text(
+              child: Text(
                 title,
-                style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
             ),
           ),

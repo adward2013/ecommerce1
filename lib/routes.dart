@@ -25,13 +25,14 @@ import 'core/middleware/mymiddleware.dart';
 List<GetPage<dynamic>>? routes = [
   // Auth
   //GetPage(name: "/", page: () => const Language()),
-  //GetPage(name: "/", page: () => const Cart()),
-  
-   GetPage(name: "/", page: () => const Language() , middlewares: [ MyMiddleWare()]),
 
+  GetPage(
+      name: "/", page: () => const Language(), middlewares: [MyMiddleWare()]),
+
+  GetPage(name: AppRoute.cart, page: () => const Cart()),
   //GetPage(name: "/", page: () => const ProductDetails()),
   // GetPage(name: "/", page: () => const TestView() ),
-
+  GetPage(name: AppRoute.cart, page: () => const Cart()),
   GetPage(name: AppRoute.login, page: () => const Login()),
   GetPage(name: AppRoute.signUp, page: () => const SignUp()),
   GetPage(name: AppRoute.forgetPassword, page: () => const ForgetPassword()),

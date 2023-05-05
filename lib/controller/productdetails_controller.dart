@@ -40,7 +40,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   add() {
     cartController.add(itemsModel.itemsId.toString());
     countitems++;
-    update();
+     update();
   }
 
   remove() {

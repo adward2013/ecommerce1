@@ -2,6 +2,7 @@ import 'package:ecommerce/core/class/staturequest.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/cart_data.dart';
+import 'package:ecommerce/data/model/cartmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +12,11 @@ class CartController extends GetxController {
 
   late StatusRequest statusRequest;
 
-  List data = [];
+  List<CartModel> data = [];
+
+  int priceorders = 0;
+
+  int totalcountitems = 0;
 
   add(String itemsid) async {
     // data.clear();
@@ -76,8 +81,34 @@ class CartController extends GetxController {
     // update();
   }
 
+  viewCart() async {
+    // data.clear();
+    statusRequest = StatusRequest.loading;
+    var response =
+        await cartData.viewCart(myServices.sharedPreferences.getString("id")!);
+    // ignore: avoid_print
+    print("=============================== Controller $response ");
+    print(
+        "=============================== Controller---------------------------- ");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        List dataresponse = response['datacart'];
+        Map dataresponsecountprice = response['countprice'];
+
+        data.addAll(dataresponse.map((e) => CartModel.fromJson(e)));
+        totalcountitems = dataresponsecountprice['totalcount'];
+        priceorders =  dataresponsecountprice['totalprice'];
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+     update();
+  }
+
   @override
   void onInit() {
+    viewCart();
     super.onInit();
   }
 }

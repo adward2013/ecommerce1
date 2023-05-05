@@ -44,4 +44,5 @@ class AppLink {
   static const String cartadd = "$server/cart/add.php";
   static const String cartremove = "$server/cart/remove.php";
   static const String cartcountitems = "$server/cart/getcountitems.php";
+
 }

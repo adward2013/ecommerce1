@@ -1,6 +1,7 @@
 import 'package:ecommerce/controller/productdetails_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/translatedatebase.dart';
 import 'package:ecommerce/view/widget/productdetails/priceandcountitems.dart';
 import 'package:ecommerce/view/widget/productdetails/subitemslist.dart';
@@ -24,10 +25,12 @@ class ProductDetails extends StatelessWidget {
           child: MaterialButton(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(AppRoute.cart);
+            },
             color: AppColor.secoundColor,
             child: const Text(
-              "Add To Cart",
+              "Go To Cart",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
@@ -63,12 +66,9 @@ class ProductDetails extends StatelessWidget {
                             ),
                             PriceAndCountItems(
                                 onAdd: () {
-
-          
                                   controller.add();
                                 },
                                 onRemove: () {
-                                 
                                   controller.remove();
                                 },
                                 price: "${controller.itemsModel.itemsPrice}",

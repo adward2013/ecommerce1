@@ -1,4 +1,6 @@
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/constant/routes.dart';
+import 'package:ecommerce/linkapi.dart';
 import 'package:ecommerce/view/widget/home/custombottomappbarhome.dart';
 import 'package:get/get.dart';
 import 'package:ecommerce/controller/homescreen.dart';
@@ -14,7 +16,9 @@ class HomeScrean extends StatelessWidget {
         builder: (controller) => Scaffold(
             floatingActionButton: FloatingActionButton(
               backgroundColor: AppColor.primaryColor,
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(AppRoute.cart);
+              },
               child: const Icon(Icons.shopping_basket_outlined),
             ),
             floatingActionButtonLocation:

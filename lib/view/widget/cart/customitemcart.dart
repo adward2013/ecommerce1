@@ -1,12 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/imgeasset.dart';
+import 'package:ecommerce/linkapi.dart';
 import 'package:flutter/material.dart';
 
 class CustomItemsCartList extends StatelessWidget {
   final String name;
   final String price;
   final String count;
-  const CustomItemsCartList({super.key, required this.name, required this.price, required this.count});
+  final String imagename;
+  const CustomItemsCartList({super.key, required this.name, required this.price, required this.count, required this.imagename});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +19,10 @@ class CustomItemsCartList extends StatelessWidget {
           children: [
             Expanded(
                 flex: 2,
-                child: Image.asset(
-                  AppImageAsset.logo,
+                child: CachedNetworkImage(
+                  imageUrl: "${AppLink.imagesItems}/$imagename",
                   height: 90,
-                  fit: BoxFit.cover,
+                  //fit: BoxFit.cover,
                 )),
             Expanded(
                 flex: 3,

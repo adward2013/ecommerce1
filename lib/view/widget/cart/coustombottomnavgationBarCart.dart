@@ -3,11 +3,11 @@ import 'package:ecommerce/view/widget/cart/custombuttoncart.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavgationBarCart extends StatelessWidget {
-  final String price;
-  final String shipping;
-  final String totalprice;
+  final String? price;
+  final String? shipping;
+  final String? totalprice;
 
-  const BottomNavgationBarCart({super.key, required this.price, required this.shipping, required this.totalprice});
+  const BottomNavgationBarCart({super.key,   this.price,  this.shipping,  this.totalprice});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class BottomNavgationBarCart extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   "$price \$",
-                  style: const TextStyle(fontSize: 17, fontFamily: "sans"),
+                  style:  TextStyle(fontSize: 17, fontFamily: "sans"),
                 )),
           ],
         ),
