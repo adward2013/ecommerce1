@@ -21,6 +21,7 @@ class CartController extends GetxController {
   add(String itemsid) async {
     // data.clear();
     statusRequest = StatusRequest.loading;
+    update();
     var response = await cartData.addCart(
         myServices.sharedPreferences.getString("id")!, itemsid);
     // ignore: avoid_print
@@ -34,14 +35,15 @@ class CartController extends GetxController {
         statusRequest = StatusRequest.failure;
       }
     }
-    // update();
+    update();
   }
 
   remove(String itemsid) async {
     // data.clear();
     statusRequest = StatusRequest.loading;
+    update();
     var response = await cartData.removeCart(
-        myServices.sharedPreferences.getString("id")!, itemsid);
+        myServices.sharedPreferences.getString("id")!, itemsid.toString());
     // ignore: avoid_print
     print("=============================== Controller $response ");
     statusRequest = handlingData(response);
@@ -54,56 +56,51 @@ class CartController extends GetxController {
         statusRequest = StatusRequest.failure;
       }
     }
-    // update();
+    update();
   }
 
-  getCountItems(String itemsid) async {
-    // data.clear();
-    statusRequest = StatusRequest.loading;
-    var response = await cartData.getCountCart(
-        myServices.sharedPreferences.getString("id")!, itemsid);
-    // ignore: avoid_print
-    print("=============================== Controller $response ");
-    statusRequest = handlingData(response);
-    if (StatusRequest.success == statusRequest) {
-      if (response['status'] == "success") {
-        int countitems = 0;
-        //countitems = int.parse( response['data']);
-        countitems = response['data'];
-        print(
-            "----------------------------- $countitems ---------------------");
-        //data.addAll(response['data']);
-        return countitems;
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
-    }
-    // update();
+  resetVarCart() {
+    totalcountitems = 0;
+    priceorders = 0;
+    data.clear();
   }
+
+  refreshPage() {
+    resetVarCart();
+    viewCart();
+    update();
+  }
+
+ 
 
   viewCart() async {
     // data.clear();
     statusRequest = StatusRequest.loading;
+    update();
+    
     var response =
         await cartData.viewCart(myServices.sharedPreferences.getString("id")!);
     // ignore: avoid_print
     print("=============================== Controller $response ");
+    // ignore: avoid_print
     print(
         "=============================== Controller---------------------------- ");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-        List dataresponse = response['datacart'];
-        Map dataresponsecountprice = response['countprice'];
-
-        data.addAll(dataresponse.map((e) => CartModel.fromJson(e)));
-        totalcountitems = dataresponsecountprice['totalcount'];
-        priceorders =  dataresponsecountprice['totalprice'];
+        if (response['datacart']['status'] == "success") {
+          List dataresponse = response['datacart']['data'];
+          Map dataresponsecountprice = response['countprice'];
+          data.clear();
+          data.addAll(dataresponse.map((e) => CartModel.fromJson(e)));
+          totalcountitems = dataresponsecountprice['totalcount'];
+          priceorders = dataresponsecountprice['totalprice'];
+        } else {}
       } else {
         statusRequest = StatusRequest.failure;
       }
     }
-     update();
+    update();
   }
 
   @override

@@ -9,7 +9,14 @@ class CustomItemsCartList extends StatelessWidget {
   final String price;
   final String count;
   final String imagename;
-  const CustomItemsCartList({super.key, required this.name, required this.price, required this.count, required this.imagename});
+  final void Function()? onAdd;
+  final void Function()? onRemove;
+  const CustomItemsCartList(
+      {super.key,
+      required this.name,
+      required this.price,
+      required this.count,
+      required this.imagename,required this.onAdd,required this.onRemove});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +48,7 @@ class CustomItemsCartList extends StatelessWidget {
               children: [
                 SizedBox(
                     height: 35,
-                    child: IconButton(onPressed: () {}, icon: Icon(Icons.add))),
+                    child: IconButton(onPressed: onAdd, icon: Icon(Icons.add))),
                 SizedBox(
                     height: 30,
                     child: Text(
@@ -50,8 +57,8 @@ class CustomItemsCartList extends StatelessWidget {
                     )),
                 SizedBox(
                     height: 25,
-                    child:
-                        IconButton(onPressed: () {}, icon: const  Icon(Icons.remove))),
+                    child: IconButton(
+                        onPressed: onRemove, icon: const Icon(Icons.remove))),
               ],
             )),
           ],

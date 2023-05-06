@@ -26,6 +26,7 @@ class ProductDetails extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             onPressed: () {
+             
               Get.toNamed(AppRoute.cart);
             },
             color: AppColor.secoundColor,
