@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 
-
 class CustomAppBar extends StatelessWidget {
   final String titleappbar;
   final void Function()? onPressedIcon;
   final void Function()? onPressedIconFavorite;
   final void Function()? onPressedSearch;
+  final void Function(String)? onChanged;
+  final TextEditingController mycontroller;
 
-  const CustomAppBar({super.key, required this.titleappbar, this.onPressedIcon, this.onPressedSearch, required this.onPressedIconFavorite});
+  const CustomAppBar(
+      {super.key,
+      required this.titleappbar,
+      this.onPressedIcon,
+      this.onPressedSearch,
+      required this.onPressedIconFavorite,
+      this.onChanged, required this.mycontroller});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +24,13 @@ class CustomAppBar extends StatelessWidget {
         children: [
           Expanded(
               child: TextFormField(
+                controller: mycontroller,
+            onChanged: onChanged,
             decoration: InputDecoration(
-              prefixIcon: IconButton(icon: const Icon(Icons.search) , onPressed:onPressedSearch ,),
+              prefixIcon: IconButton(
+                icon: const Icon(Icons.search),
+                onPressed: onPressedSearch,
+              ),
               hintText: titleappbar,
               helperStyle: const TextStyle(fontSize: 18),
               border: OutlineInputBorder(

@@ -1,8 +1,10 @@
+import 'package:ecommerce/controller/home_controller.dart';
 import 'package:ecommerce/core/class/staturequest.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/items_data.dart';
 import 'package:ecommerce/data/model/itemsmodel.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class ItemsController extends GetxController {
@@ -12,7 +14,7 @@ abstract class ItemsController extends GetxController {
   goToPageProductDetails(ItemsModel itemsModel);
 }
 
-class ItemsControllerImp extends ItemsController {
+class ItemsControllerImp extends SearchMixController {
   List categories = [];
   int? selectedCat;
 
@@ -23,10 +25,13 @@ class ItemsControllerImp extends ItemsController {
 
   late StatusRequest statusRequest;
 
+  
+
   MyServices myServices = Get.find();
 
   @override
   void onInit() {
+    search = TextEditingController();
     inialData();
     super.onInit();
   }
@@ -64,6 +69,8 @@ class ItemsControllerImp extends ItemsController {
     }
     update();
   }
+  
+ 
 
   @override
   goToPageProductDetails(itemsModel) {
