@@ -1,6 +1,7 @@
 import 'package:ecommerce/controller/settings_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/imgeasset.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -45,10 +46,15 @@ class Settings extends StatelessWidget {
                 ListTile(
                   onTap: () {},
                   title: const Text("Dark Mode"),
-                  trailing: Switch(onChanged: (val){} , value: true,),
+                  trailing: Switch(
+                    onChanged: (val) {},
+                    value: true,
+                  ),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(AppRoute.addressview);
+                  },
                   title: const Text("Address"),
                   trailing: const Icon(Icons.location_on_outlined),
                 ),

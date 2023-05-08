@@ -51,6 +51,7 @@ dependencies:
   google_maps_flutter: ^2.1.5
   geolocator: ^9.0.2
   geocoding: ^2.0.4
+  
     # Firebase And Notification
   firebase_messaging: ^14.4.1
   firebase_core: ^2.10.0
@@ -80,6 +81,8 @@ dependencies:
   flutter_otp_text_field: ^1.1.1
   flutter_svg: ^2.0.5
   lottie: ^2.3.2
+  flutter_osm_plugin: ^0.53.2
+
 
 dev_dependencies:
   flutter_test:

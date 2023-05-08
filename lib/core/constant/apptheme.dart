@@ -4,6 +4,12 @@ import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 ThemeData themeEnglish = ThemeData(
+  appBarTheme: AppBarTheme(
+    color: AppColor.primaryColor
+  ),
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: AppColor.primaryColor
+  ),
 fontFamily: "PlayfairDisplay",
 textTheme: const TextTheme(
 headline1 : TextStyle(
@@ -25,6 +31,12 @@ primarySwatch: Colors.blue,
 
 );
 ThemeData themeArabic = ThemeData(
+   appBarTheme: AppBarTheme(
+    color: AppColor.primaryColor
+  ),
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: AppColor.primaryColor
+  ),
 fontFamily: "Cairo",
 textTheme: const TextTheme(
 headline1 : TextStyle(
