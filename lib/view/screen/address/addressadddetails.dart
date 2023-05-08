@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/forgetpassword/address/addressdetails_controller.dart';
+import 'package:ecommerce/controller/address/addressdetails_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/view/widget/auth/customtextformauth.dart';
 import 'package:ecommerce/view/widget/cart/custombuttoncart.dart';

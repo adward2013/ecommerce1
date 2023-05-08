@@ -4,10 +4,15 @@ import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 ThemeData themeEnglish = ThemeData(
-  appBarTheme: AppBarTheme(
-    color: AppColor.primaryColor
+  appBarTheme: const AppBarTheme(
+    color: Color.fromRGBO(250, 250, 250, 1),
+     centerTitle: true,
+        elevation: 0,
+        iconTheme: IconThemeData(color: AppColor.primaryColor),
+        titleTextStyle: TextStyle(color: AppColor.primaryColor ,fontSize: 25, fontWeight: FontWeight.bold,fontFamily: "Cairo")
+      
   ),
-  floatingActionButtonTheme: FloatingActionButtonThemeData(
+  floatingActionButtonTheme: const  FloatingActionButtonThemeData(
     backgroundColor: AppColor.primaryColor
   ),
 fontFamily: "PlayfairDisplay",
@@ -31,10 +36,13 @@ primarySwatch: Colors.blue,
 
 );
 ThemeData themeArabic = ThemeData(
-   appBarTheme: AppBarTheme(
-    color: AppColor.primaryColor
+   appBarTheme: const AppBarTheme(
+    color: Color.fromRGBO(250, 250, 250, 1),
+     centerTitle: true,
+        elevation: 0,
+        iconTheme: IconThemeData(color: AppColor.primaryColor),
   ),
-  floatingActionButtonTheme: FloatingActionButtonThemeData(
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(
     backgroundColor: AppColor.primaryColor
   ),
 fontFamily: "Cairo",

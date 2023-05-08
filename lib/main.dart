@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
 
-      title: 'Flutter Demo',
+      title: 'Ecommerce',
       locale: controller.Language,
       theme: controller.appTheme ,
 

@@ -13,6 +13,7 @@ import 'package:ecommerce/view/screen/auth/signup.dart';
 import 'package:ecommerce/view/screen/auth/success_signup.dart';
 import 'package:ecommerce/view/screen/auth/forgetpassword/verfiycode.dart';
 import 'package:ecommerce/view/screen/auth/veifycodesignup.dart';
+import 'package:ecommerce/view/screen/checkout.dart';
 
 import 'package:ecommerce/view/screen/homescreen.dart';
 import 'package:ecommerce/view/screen/items.dart';
@@ -61,4 +62,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.addressview, page: () => const AddressView()),
   GetPage(name: AppRoute.addressadd, page: () =>  AddressAdd()),
   GetPage(name: AppRoute.addressadddetails, page: () => const AddressAddDetails()),
+
+  /// Check Out
+  GetPage(name: AppRoute.checkout, page: () => const CheckOut()),
 ];
