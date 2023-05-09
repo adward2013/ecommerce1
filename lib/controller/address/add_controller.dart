@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:ecommerce/core/class/staturequest.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
@@ -30,7 +28,9 @@ class AddressController extends GetxController {
     latitude = position.latitude.toString();
     longitude = position.longitude.toString();
 
+    // ignore: avoid_print
     print('Latitude: $latitude');
+    // ignore: avoid_print
     print('Longitude: $longitude');
   }
 

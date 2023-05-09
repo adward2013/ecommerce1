@@ -22,6 +22,7 @@ class HomeControllerImp extends HomeController {
   String? id;
   String? lang;
 
+ 
   HomeDate homeDate = HomeDate(Get.find());
 
   //List data = [];

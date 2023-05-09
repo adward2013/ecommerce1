@@ -17,6 +17,7 @@ class AddressViewController extends GetxController {
   deleteAddress(String addressid) {
     
     addressData.deleteData(addressid);
+    // ignore: unrelated_type_equality_checks
     data.removeWhere((element) => element.addressId == addressid);
     
     update();
@@ -28,7 +29,7 @@ class AddressViewController extends GetxController {
 
     var response = await addressData
         .getData(myServices.sharedPreferences.getString("id")!);
-
+   // ignore: avoid_print
     print("=============================== Controller $response ");
 
     statusRequest = handlingData(response);

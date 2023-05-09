@@ -1,4 +1,3 @@
-import 'package:ecommerce/controller/cart_controller.dart';
 import 'package:ecommerce/core/class/staturequest.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/services/services.dart';
@@ -7,7 +6,9 @@ import 'package:ecommerce/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class ProductDetailsController extends GetxController {}
+abstract class ProductDetailsController extends GetxController {
+  
+}
 
 class ProductDetailsControllerImp extends ProductDetailsController {
   // CartController cartController = Get.put(CartController());

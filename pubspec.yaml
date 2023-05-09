@@ -113,6 +113,8 @@ flutter:
     - assets/images/3.PNG
     - assets/images/4.png
     - assets/images/logo.png
+    - assets/images/006-delivery.png
+    - assets/images/drivethru.png
     - assets/images/avatar.jpg
     - assets/lottie/loading.json
     - assets/lottie/nodata.json

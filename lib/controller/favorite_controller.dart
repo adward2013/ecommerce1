@@ -37,7 +37,7 @@ class FavoriteController extends GetxController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-        Get.rawSnackbar(title: "notification", messageText: Text("Done added"));
+        Get.rawSnackbar(title: "notification", messageText: const Text("Done added"));
         //data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -57,7 +57,7 @@ class FavoriteController extends GetxController {
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         Get.rawSnackbar(
-            title: "notification", messageText: Text("Done removed"));
+            title: "notification", messageText: const Text("Done removed"));
         // data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;

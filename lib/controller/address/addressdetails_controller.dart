@@ -31,7 +31,9 @@ class AddAddressDetailsController extends GetxController {
     lat = Get.arguments['lat'];
     long = Get.arguments['long'];
 
+  // ignore: avoid_print
   print('Latitude: $lat');
+   // ignore: avoid_print
     print('Longitude: $long');
 
   }
@@ -47,7 +49,7 @@ class AddAddressDetailsController extends GetxController {
         street!.text,
         lat!,
         long!);
-
+       // ignore: avoid_print
     print("=============================== Controller $response ");
 
     statusRequest = handlingData(response);

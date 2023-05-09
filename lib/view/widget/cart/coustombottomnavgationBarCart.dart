@@ -87,7 +87,7 @@ class BottomNavgationBarCart extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
                           "$price \$",
-                          style: TextStyle(fontSize: 17, fontFamily: "sans"),
+                          style: const TextStyle(fontSize: 17, fontFamily: "sans"),
                         )),
                   ],
                 ),

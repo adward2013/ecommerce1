@@ -9,6 +9,8 @@ class AppImageAsset{
   static const String onBoardingImageTwo   = "$rootImages/2.PNG";
   static const String onBoardingImageThree = "$rootImages/3.PNG";
   static const String avatar = "$rootImages/avatar.jpg";
+  static const String delivery = "$rootImages/006-delivery.png";
+  static const String drivethru = "$rootImages/drivethru.png";
 
 
   static const String loading = "$lottieImages/loading.json";

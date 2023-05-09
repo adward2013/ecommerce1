@@ -1,11 +1,9 @@
 import 'package:ecommerce/controller/myfavorite_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
-import 'package:ecommerce/core/constant/routes.dart';
-import 'package:ecommerce/view/widget/coustomappbar.dart';
+
 import 'package:ecommerce/view/widget/myfavorite/customlistfavoriteitems.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:get/get.dart';
 
 class MyFavorite extends StatelessWidget {

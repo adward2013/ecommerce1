@@ -36,7 +36,7 @@ class ItemsControllerImp extends SearchMixController {
     super.onInit();
   }
 
-  @override
+
   inialData() {
     categories = Get.arguments['categories'];
     selectedCat = Get.arguments['selectedcat'];
@@ -44,7 +44,6 @@ class ItemsControllerImp extends SearchMixController {
     getItems(catid!);
   }
 
-  @override
   changeCat(val, catval) {
     selectedCat = val;
     catid = catval;
@@ -52,7 +51,7 @@ class ItemsControllerImp extends SearchMixController {
     update();
   }
 
-  @override
+  
   getItems(categoryid) async {
     data.clear();
     statusRequest = StatusRequest.loading;
