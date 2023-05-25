@@ -4,6 +4,7 @@ import 'package:ecommerce/core/constant/imgeasset.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -53,18 +54,37 @@ class Settings extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {
+                    Get.toNamed(AppRoute.orderspending);
+                  },
+                  title: const Text("Orders"),
+                  trailing: const Icon(Icons.card_travel_outlined),
+                ),
+                ListTile(
+                  onTap: () {
+                    Get.toNamed(AppRoute.addressview);
+                  },
+                  title: const Text("Archive"),
+                  trailing: const Icon(Icons.card_travel_outlined),
+                ),
+                ListTile(
+                  onTap: () {
                     Get.toNamed(AppRoute.addressview);
                   },
                   title: const Text("Address"),
                   trailing: const Icon(Icons.location_on_outlined),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(AppRoute.aboutus);
+                  },
                   title: const Text("About Us"),
                   trailing: const Icon(Icons.help_outlined),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () async{
+                    
+                    await launchUrl(Uri.parse("tel:+201279615736"));
+                  },
                   title: const Text("Contact Us"),
                   trailing: const Icon(Icons.contact_mail_outlined),
                 ),

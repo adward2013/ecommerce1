@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/linkapi.dart';
@@ -24,6 +26,21 @@ class HomeScrean extends StatelessWidget {
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
             bottomNavigationBar: const CustomBottomAppBarHome(),
-            body: controller.listPage.elementAt(controller.currentpage)));
+            body: WillPopScope(
+                child: controller.listPage.elementAt(controller.currentpage),
+                onWillPop: () {
+                  Get.defaultDialog(
+                    title: "Warning",
+                    middleText: "Do You Want To Exit The app",
+                    cancelTextColor: AppColor.secoundColor,
+                    confirmTextColor: AppColor.secoundColor,
+                    buttonColor: AppColor.thirdColor,
+                    onCancel: () {},
+                    onConfirm: () {
+                      exit(0);
+                    },
+                  );
+                  return Future.value(false);
+                })));
   }
 }

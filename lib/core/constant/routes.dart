@@ -22,4 +22,13 @@ class AppRoute {
   static const String addressadddetails       = "/addressadddetails" ;
   //Check out
   static const String checkout       = "/checkout" ;
+
+
+  
+  static const String aboutus       = "/aboutus" ;
+
+
+
+  static const String orderspending       = "/orderspending" ;
+  static const String ordersdetails       = "/ordersdetails" ;
 }

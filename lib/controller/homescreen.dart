@@ -1,4 +1,5 @@
 import 'package:ecommerce/view/screen/home.dart';
+import 'package:ecommerce/view/screen/profile.dart';
 import 'package:ecommerce/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,12 +18,7 @@ class HomeScreenControllerImp extends HomeScreenController {
         Center(child: Text("Settings")),
       ],
     ),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Center(child: Text("profile")),
-      ],
-    ),
+   ProfileScreen(),
   const Settings()
   ];
   List buttomappbar = [

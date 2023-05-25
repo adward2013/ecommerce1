@@ -9,12 +9,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CheckOut extends StatelessWidget {
-  
   const CheckOut({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(CheckoutController());
+    CheckoutController controller = Get.put(CheckoutController());
     return Scaffold(
         appBar: AppBar(
           title: const Text("Check out"),
@@ -22,7 +21,9 @@ class CheckOut extends StatelessWidget {
         bottomNavigationBar: Container(
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
             child: MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                controller.test();
+              },
               textColor: AppColor.white,
               color: AppColor.secoundColor,
               child: const Text(
@@ -93,8 +94,8 @@ class CheckOut extends StatelessWidget {
                               },
                               child: CardDeliveryTypeCheckout(
                                 active: controller.deliveryType == "delivery"
-                                ? true
-                                : false,
+                                    ? true
+                                    : false,
                                 imagename: AppImageAsset.delivery,
                                 title: 'Delivery',
                               ),
@@ -104,12 +105,12 @@ class CheckOut extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                 controller.chooseDeliveryType("recive");
+                                controller.chooseDeliveryType("recive");
                               },
                               child: CardDeliveryTypeCheckout(
                                 active: controller.deliveryType == "recive"
-                                ? true
-                                : false,
+                                    ? true
+                                    : false,
                                 imagename: AppImageAsset.drivethru,
                                 title: 'Recive',
                               ),
@@ -119,38 +120,53 @@ class CheckOut extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                         if(controller.deliveryType == "delivery")
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const[
-                           Text(
-                          "Shipping  Address",
-                          style: TextStyle(
-                              color: AppColor.secoundColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold),
-                        ),
-                         SizedBox(
-                          height: 10,
-                        ),
-                        
-                         CardShppingAddressCheckout(
-                          title: "Home",
-                          isactive: true,
-                          body: "EdwardStreet",
-                        ),
-                         CardShppingAddressCheckout(
-                          title: "Company",
-                          isactive: false,
-                          body: "9Street",
-                        ) 
-                        // ],): Container(
-                        //   padding: const EdgeInsets.symmetric(horizontal: 10),
-                        //   child: CardShppingAddressCheckout(isactive: true,
-                        //   title: "total price",
-                        //   body: "600 \$",
-                          //),
-                      ])
+                        if (controller.deliveryType == "delivery")
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "Shipping  Address",
+                                style: TextStyle(
+                                    color: AppColor.secoundColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+
+                              ...List.generate(
+                                controller.dataaddress.length,
+                                (index) => InkWell(
+                                  onTap: () {
+                                    controller.chooseShippingAddress(controller
+                                        .dataaddress[index].addressId
+                                        .toString());
+                                  },
+                                  child: CardShppingAddressCheckout(
+                                    title:
+                                        "${controller.dataaddress[index].addressName}",
+                                    // ignore: unrelated_type_equality_checks
+                                    isactive: controller.addressid.toString() ==
+                                            controller
+                                                .dataaddress[index].addressId
+                                                .toString()
+                                        ? true
+                                        : false,
+                                    body:
+                                        "${controller.dataaddress[index].addressCity} , ${controller.dataaddress[index].addressStreet}",
+                                  ),
+                                ),
+                              )
+
+                              // ],): Container(
+                              //   padding: const EdgeInsets.symmetric(horizontal: 10),
+                              //   child: CardShppingAddressCheckout(isactive: true,
+                              //   title: "total price",
+                              //   body: "600 \$",
+                              //),
+                            ],
+                          )
                       ],
                     ),
                   ),

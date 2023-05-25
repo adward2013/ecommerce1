@@ -5,6 +5,7 @@ import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/functions/translatedatebase.dart';
 import 'package:ecommerce/data/model/itemsmodel.dart';
 import 'package:ecommerce/linkapi.dart';
+import 'package:ecommerce/view/widget/items/ratingitem.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -47,30 +48,31 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                         fontWeight: FontWeight.bold),
                     maxLines: 1,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        "Rating 3.5 ",
-                        textAlign: TextAlign.center,
-                      ),
-                      Container(
-                        alignment: Alignment.bottomCenter,
-                        height: 22,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            ...List.generate(
-                                5,
-                                (index) => const Icon(
-                                      Icons.star,
-                                      size: 15,
-                                    ))
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                  
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     const Text(
+                  //       "Rating 3.5 ",
+                  //       textAlign: TextAlign.center,
+                  //     ),
+                  //     Container(
+                  //       alignment: Alignment.bottomCenter,
+                  //       height: 22,
+                  //       child: Row(
+                  //         crossAxisAlignment: CrossAxisAlignment.center,
+                  //         children: [
+                  //           ...List.generate(
+                  //               5,
+                  //               (index) => const Icon(
+                  //                     Icons.star,
+                  //                     size: 15,
+                  //                   ))
+                  //         ],
+                  //       ),
+                  //     )
+                  //   ],
+                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -103,7 +105,19 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                                 color: AppColor.primaryColor,
                               )))
                     ],
-                  )
+                  
+                ),
+                Container(
+                  width: double.infinity,
+                  child: MaterialButton(
+                      onPressed: () {
+                        showDialogTatingitem(context,itemsModel.itemsId.toString());
+                      },
+                      color: AppColor.thirdColor,
+                      textColor: AppColor.secoundColor,
+                      child: const Text("Rating"),
+                    ),
+                ),
                 ]),
           ),
         ));

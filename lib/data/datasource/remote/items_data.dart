@@ -11,4 +11,8 @@ class ItemsData {
     return response.fold((l) => l, (r) => r) ;
 
   }
+      rating(String userid ,String itemid , String  comment , String rating) async {
+    var response = await crud.postData(AppLink.ratingitem, {"userid": userid,"itemid": itemid.toString() , "rating" : rating , "comment" :comment});
+    return response.fold((l) => l, (r) => r);
+  }
 }

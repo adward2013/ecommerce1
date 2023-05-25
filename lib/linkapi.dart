@@ -1,10 +1,10 @@
 class AppLink {
   static const String server =
-      "http://adwar1111-001-site1.btempurl.com/ecommerce";
+      "http://adwar123-001-site1.gtempurl.com/ecommerce";
 
   //------------------------images
   static const String image =
-      "http://adwar1111-001-site1.btempurl.com/ecommerce/upload";
+      "http://adwar123-001-site1.gtempurl.com/ecommerce/upload";
   static const String imagesCategories = "$image/categories";
   static const String imagesItems = "$image/items";
 
@@ -33,6 +33,7 @@ class AppLink {
 
   static const String items = "$server/items/items.php";
   static const String searchitems = "$server/items/search.php";
+  static const String ratingitem = "$server/test1.php";
 
   //----------------------------------favorite
   static const String favoriteadd = "$server/favorite/add.php";
@@ -53,5 +54,17 @@ class AppLink {
 
   //-----------------------------------Coupon
   static const String checkcoupon = "$server/coupon/checkcoupon.php";
+
+  //--------------------------------------Checkout
+
+  static const String checkout = "$server/orders/checkout5.php";
+  static const String vieworders = "$server/orders/orders.php";
+  static const String ordersdetails = "$server/orders/details.php";
+  static const String ordersdelete = "$server/orders/delete.php";
+
+
+
+ // ordersss
+  static const String rating = "$server/rating.php";
 
 }

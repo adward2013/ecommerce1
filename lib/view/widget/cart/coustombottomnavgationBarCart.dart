@@ -6,7 +6,7 @@ import 'package:ecommerce/view/widget/cart/custombuttoncoupon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class BottomNavgationBarCart extends StatelessWidget {
+class BottomNavgationBarCart extends GetView<CartController> {
   final String? price;
   final String? discount;
   final String? shipping;
@@ -87,7 +87,8 @@ class BottomNavgationBarCart extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
                           "$price \$",
-                          style: const TextStyle(fontSize: 17, fontFamily: "sans"),
+                          style:
+                              const TextStyle(fontSize: 17, fontFamily: "sans"),
                         )),
                   ],
                 ),
@@ -161,7 +162,7 @@ class BottomNavgationBarCart extends StatelessWidget {
         CustomButtomCart(
           textbutton: "Order",
           onPressed: () {
-            Get.toNamed(AppRoute.checkout);
+            controller.goToPageCheckout();
           },
         )
       ],

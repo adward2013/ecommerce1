@@ -82,6 +82,8 @@ dependencies:
   flutter_svg: ^2.0.5
   lottie: ^2.3.2
   flutter_osm_plugin: ^0.53.2
+  rating_dialog: ^2.0.4
+  
 
 
 dev_dependencies:
@@ -120,6 +122,8 @@ flutter:
     - assets/lottie/nodata.json
     - assets/lottie/offline.json
     - assets/lottie/server.json
+    - assets/lottie/ecommerce.json
+    - assets/lottie/cart.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

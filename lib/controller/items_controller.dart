@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:ecommerce/controller/home_controller.dart';
 import 'package:ecommerce/core/class/staturequest.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
@@ -6,6 +8,7 @@ import 'package:ecommerce/data/datasource/remote/items_data.dart';
 import 'package:ecommerce/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 
 abstract class ItemsController extends GetxController {
   inialData();
@@ -25,8 +28,6 @@ class ItemsControllerImp extends SearchMixController {
 
   late StatusRequest statusRequest;
 
-  
-
   MyServices myServices = Get.find();
 
   @override
@@ -35,7 +36,6 @@ class ItemsControllerImp extends SearchMixController {
     inialData();
     super.onInit();
   }
-
 
   inialData() {
     categories = Get.arguments['categories'];
@@ -51,11 +51,11 @@ class ItemsControllerImp extends SearchMixController {
     update();
   }
 
-  
   getItems(categoryid) async {
     data.clear();
     statusRequest = StatusRequest.loading;
-    var response = await itemsData.getData(categoryid,myServices.sharedPreferences.getString("id")!);
+    var response = await itemsData.getData(
+        categoryid, myServices.sharedPreferences.getString("id")!);
     // ignore: avoid_print
     print("=============================== Controller $response ");
     statusRequest = handlingData(response);
@@ -68,8 +68,39 @@ class ItemsControllerImp extends SearchMixController {
     }
     update();
   }
-  
- 
+
+  submitRating(String itemid, double rating, String comment) async {
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await itemsData.rating(
+        myServices.sharedPreferences.getString("id").toString(),
+        itemid,
+        comment,
+        rating.toString());
+    print("=============================== Controller $response ");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        print("----------------------------------success------------------");
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+      // End
+    }
+    update();
+  }
+
+  test(String itemid, double rating, String comment) async {
+    final url = 'http://adwar123-001-site1.gtempurl.com/ecommerce/test3.php';
+    final response = await http.post(Uri.parse(url), body: {
+      'userid': myServices.sharedPreferences.getString("id"),
+      'itemid': itemid,
+      'rating': rating.toString(),
+      'comment': comment,
+    });
+  }
 
   @override
   goToPageProductDetails(itemsModel) {

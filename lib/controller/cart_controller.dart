@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/class/staturequest.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/cart_data.dart';
@@ -12,7 +13,10 @@ class CartController extends GetxController {
   MyServices myServices = Get.find();
 
   int discountcoupon = 0;
+
   String? couponname;
+
+  String? couponid;
 
   CouponModel? couponModel;
 
@@ -37,7 +41,8 @@ class CartController extends GetxController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-        Get.rawSnackbar(title: "notification", messageText: const Text("Done added"));
+        Get.rawSnackbar(
+            title: "notification", messageText: const Text("Done added"));
         //data.addAll(response['data']);
       } else {
         statusRequest = StatusRequest.failure;
@@ -123,13 +128,23 @@ class CartController extends GetxController {
         couponModel = CouponModel.fromJson(datacoupon);
         discountcoupon = couponModel!.couponDiscound!;
         couponname = couponModel!.couponName;
+        couponid = couponModel!.couponId.toString();
       } else {
         // statusRequest = StatusRequest.failure;
         discountcoupon = 0;
-        couponname = null ;
+        couponname = null;
+        couponid = null;
       }
     }
     update();
+  }
+
+  goToPageCheckout() {
+    if (data.isEmpty) return Get.snackbar("alert", "The cart is empty");
+    Get.toNamed(AppRoute.checkout, arguments: {
+      "couponid": couponid ?? "0",
+      "priceorder": priceorders.toString()
+    });
   }
 
   getTotalPrice() {

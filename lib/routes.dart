@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/constant/routes.dart';
+import 'package:ecommerce/view/screen/aboutus.dart';
 import 'package:ecommerce/view/screen/address/add.dart';
 import 'package:ecommerce/view/screen/address/addressadddetails.dart';
 import 'package:ecommerce/view/screen/address/view.dart';
@@ -20,6 +21,8 @@ import 'package:ecommerce/view/screen/items.dart';
 import 'package:ecommerce/view/screen/language.dart';
 import 'package:ecommerce/view/screen/myfavorite.dart';
 import 'package:ecommerce/view/screen/onboarding.dart';
+import 'package:ecommerce/view/screen/orders/details.dart';
+import 'package:ecommerce/view/screen/orders/pending.dart';
 import 'package:ecommerce/view/screen/productdetails.dart';
 
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -65,4 +68,14 @@ List<GetPage<dynamic>>? routes = [
 
   /// Check Out
   GetPage(name: AppRoute.checkout, page: () => const CheckOut()),
+
+
+
+  GetPage(name: AppRoute.aboutus, page: () => const AboutUsScreen()),
+
+
+
+  //orders
+  GetPage(name: AppRoute.orderspending, page: () => const OrdersPending()),
+  GetPage(name: AppRoute.ordersdetails, page: () => const OrdersDetails()),
 ];
