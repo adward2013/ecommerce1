@@ -44,14 +44,14 @@ class Settings extends StatelessWidget {
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 10),
             child: Card(
               child: Column(mainAxisSize: MainAxisSize.min, children: [
-                ListTile(
-                  onTap: () {},
-                  title: const Text("Dark Mode"),
-                  trailing: Switch(
-                    onChanged: (val) {},
-                    value: true,
-                  ),
-                ),
+                // ListTile(
+                //   onTap: () {},
+                //   title: const Text("Dark Mode"),
+                //   trailing: Switch(
+                //     onChanged: (val) {},
+                //     value: true,
+                //   ),
+                // ),
                 ListTile(
                   onTap: () {
                     Get.toNamed(AppRoute.orderspending);
@@ -59,13 +59,7 @@ class Settings extends StatelessWidget {
                   title: const Text("Orders"),
                   trailing: const Icon(Icons.card_travel_outlined),
                 ),
-                ListTile(
-                  onTap: () {
-                    Get.toNamed(AppRoute.addressview);
-                  },
-                  title: const Text("Archive"),
-                  trailing: const Icon(Icons.card_travel_outlined),
-                ),
+                
                 ListTile(
                   onTap: () {
                     Get.toNamed(AppRoute.addressview);
