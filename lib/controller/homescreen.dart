@@ -1,4 +1,5 @@
 import 'package:ecommerce/view/screen/home.dart';
+import 'package:ecommerce/view/screen/offers.dart';
 import 'package:ecommerce/view/screen/profile.dart';
 import 'package:ecommerce/view/screen/settings.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +19,13 @@ class HomeScreenControllerImp extends HomeScreenController {
         Center(child: Text("Settings")),
       ],
     ),
-   ProfileScreen(),
+  const OffersView(),
   const Settings()
   ];
   List buttomappbar = [
     {"title": "home", "icon": Icons.home_outlined},
     {"title": "notifications", "icon": Icons.notifications_outlined},
-    {"title": "profile", "icon": Icons.person_outline},
+    {"title": "offers", "icon": Icons.wallet_giftcard_outlined},
     {"title": "settings", "icon": Icons.settings_outlined}
   ];
   @override
