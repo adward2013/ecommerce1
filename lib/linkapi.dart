@@ -33,7 +33,7 @@ class AppLink {
 
   static const String items = "$server/items/items.php";
   static const String searchitems = "$server/items/search.php";
-  static const String ratingitem = "$server/test1.php";
+  static const String ratingitem = "$server/rating1.php";
 
   //----------------------------------favorite
   static const String favoriteadd = "$server/favorite/add.php";

@@ -93,7 +93,7 @@ class ItemsControllerImp extends SearchMixController {
   }
 
   test(String itemid, double rating, String comment) async {
-    final url = 'http://adwar123-001-site1.gtempurl.com/ecommerce/test3.php';
+    final url = 'http://adwar123-001-site1.gtempurl.com/ecommerce/rating4.php';
     final response = await http.post(Uri.parse(url), body: {
       'userid': myServices.sharedPreferences.getString("id"),
       'itemid': itemid,
