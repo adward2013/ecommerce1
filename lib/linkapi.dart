@@ -68,4 +68,7 @@ class AppLink {
   static const String rating = "$server/rating.php";
   static const String offers = "$server/offers.php";
 
+// recommendation
+  static const String recommendation = "$server/recommendation.php";
+
 }
