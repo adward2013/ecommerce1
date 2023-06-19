@@ -13,7 +13,7 @@ class RecommendationModel {
   int? itemsCat;
   int? recommendationsId;
   int? recommendationsItemsid;
-  int? recommendationsCountrating;
+  int? recommendationsUserid;
 
   RecommendationModel(
       {this.itemsId,
@@ -30,7 +30,7 @@ class RecommendationModel {
       this.itemsCat,
       this.recommendationsId,
       this.recommendationsItemsid,
-      this.recommendationsCountrating});
+      this.recommendationsUserid});
 
   RecommendationModel.fromJson(Map<String, dynamic> json) {
     itemsId = json['items_id'];
@@ -47,7 +47,7 @@ class RecommendationModel {
     itemsCat = json['items_cat'];
     recommendationsId = json['recommendations_id'];
     recommendationsItemsid = json['recommendations_itemsid'];
-    recommendationsCountrating = json['recommendations_countrating'];
+    recommendationsUserid = json['recommendations_userid'];
   }
 
   Map<String, dynamic> toJson() {
@@ -66,7 +66,7 @@ class RecommendationModel {
     data['items_cat'] = this.itemsCat;
     data['recommendations_id'] = this.recommendationsId;
     data['recommendations_itemsid'] = this.recommendationsItemsid;
-    data['recommendations_countrating'] = this.recommendationsCountrating;
+    data['recommendations_userid'] = this.recommendationsUserid;
     return data;
   }
 }

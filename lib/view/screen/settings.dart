@@ -82,6 +82,13 @@ class Settings extends StatelessWidget {
                   title: const Text("Contact Us"),
                   trailing: const Icon(Icons.contact_mail_outlined),
                 ),
+                                ListTile(
+                  onTap: () {
+                    Get.toNamed(AppRoute.chatscreen);
+                  },
+                  title: const Text("Chat with e-commerce"),
+                  trailing: const Icon(Icons.chat_outlined),
+                ),
                 ListTile(
                   onTap: () {
                     controller.logout();

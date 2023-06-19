@@ -83,6 +83,9 @@ dependencies:
   lottie: ^2.3.2
   flutter_osm_plugin: ^0.53.2
   rating_dialog: ^2.0.4
+  flutter_spinkit: ^5.1.0
+  provider: ^6.0.5
+  animated_text_kit: ^4.2.2
   
 
 
@@ -124,6 +127,9 @@ flutter:
     - assets/lottie/server.json
     - assets/lottie/ecommerce.json
     - assets/lottie/cart.json
+    - assets/images/openai_logo.jpg
+    - assets/images/chat_logo.png
+    - assets/images/person.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

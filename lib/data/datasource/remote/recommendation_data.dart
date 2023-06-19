@@ -5,8 +5,8 @@ class RecommendationData {
   Crud crud ;
 
   RecommendationData(this.crud);
-  getData() async {
-    var response = await crud.postData(AppLink.recommendation, {});
+  getData(String id) async {
+    var response = await crud.postData(AppLink.recommendation, {"id" : id });
 
     return response.fold((l) => l, (r) => r) ;
 

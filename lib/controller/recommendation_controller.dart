@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/class/staturequest.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
+import 'package:ecommerce/core/services/services.dart';
 
 import 'package:ecommerce/data/datasource/remote/recommendation_data.dart';
 
@@ -12,12 +13,13 @@ class RecommendationController extends GetxController {
   
 
   List<RecommendationModel> data = [];
+  MyServices myServices = Get.find();
 
   late StatusRequest statusRequest;
 
   getData() async {
     statusRequest = StatusRequest.loading;
-    var response = await recommendationData.getData();
+    var response = await recommendationData.getData(myServices.sharedPreferences.getString("id")!);
     // ignore: avoid_print
     print("=============================== Controller $response ");
     statusRequest = handlingData(response);

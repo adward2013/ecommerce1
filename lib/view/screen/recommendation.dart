@@ -22,7 +22,7 @@ class RecommendationView extends StatelessWidget {
           builder: (controller) => HandlingDataView(
               statusRequest: controller.statusRequest,
               widget: ListView.builder(
-                itemCount: 2,
+                itemCount: controller.data.length,
                 itemBuilder: (context, index) =>
                     CustomRecommendation(recommendationModel: controller.data[index]),
               ))),

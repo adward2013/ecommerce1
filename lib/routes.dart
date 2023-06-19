@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/constant/routes.dart';
+import 'package:ecommerce/view/chat/screens/chat_screen.dart';
 import 'package:ecommerce/view/screen/aboutus.dart';
 import 'package:ecommerce/view/screen/address/add.dart';
 import 'package:ecommerce/view/screen/address/addressadddetails.dart';
@@ -85,4 +86,9 @@ List<GetPage<dynamic>>? routes = [
 
 
   GetPage(name: AppRoute.offersview, page: () => const OffersView()),
+
+
+
+  GetPage(name: AppRoute.chatscreen, page: () => const ChatScreen()),
+
 ];
